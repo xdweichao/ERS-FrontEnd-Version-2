@@ -9,14 +9,16 @@ import { HttpClient } from'@angular/common/http';
 export class LoginService {
 
   currentlyLoggedIn = false;
+
+  //init values
   currentUser = {
-    id: 0,
-    username: 'string',
-    password: 'string',
-    firstName: 'string',
-    lastName: 'string',
-    email: 'string',
-    roleID: 0
+    id: -1,
+    username: '',
+    password: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    roleID: -1
   };
 
 
@@ -29,11 +31,14 @@ export class LoginService {
       password: credentials.password
     };
 
-    const url        = 'http://localhost:8080/ers/login';
+    const url = 'http://localhost:8080/ers/login';
     const userObject = await this.httpClient.post(url, loginCredentials).toPromise();
     const userString = JSON.stringify(userObject);
-    const userJSON   = JSON.parse(userString);
+    const userJSON = JSON.parse(userString);
     
+
+    // if exist: net parsed data to usermodel
+    // Sends user to ticket page
     if (userJSON.userid != null) {
       this.currentUser.id = userJSON.userid;
       this.currentUser.username = userJSON.username;
