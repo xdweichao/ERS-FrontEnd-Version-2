@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from'@angular/common/http';
+import { set as setCookie, get as getCookie } from 'es-cookie';
 
 @Injectable({
   providedIn: 'root'
@@ -18,14 +19,13 @@ export class LoginService {
     firstName: '',
     lastName: '',
     email: '',
-    roleID: -1
+    roleid: -1
   };
 
 
   constructor(private router: Router, private httpClient: HttpClient) { }
     
   async loginHttp(credentials: {username: string, password: string}) {
-
     const loginCredentials = {
       username: credentials.username,
       password: credentials.password
@@ -46,10 +46,18 @@ export class LoginService {
       this.currentUser.firstName = userJSON.firstname;
       this.currentUser.lastName = userJSON.lastname;
       this.currentUser.email = userJSON.email;
-      this.currentUser.roleID = userJSON.role;
+      this.currentUser.roleid = userJSON.role;
       this.router.navigateByUrl('/Ticket_Home_Page');
       this.currentlyLoggedIn = true;
     }
+    const UserIDCookie = this.currentUser.id+"";
+    setCookie('UserIDCookie', UserIDCookie);
+    const Role = this.currentUser.roleid+"";
+    setCookie('UserRoleIDCookie', Role);
+    console.log('User ID Cookie: ' + getCookie('UserIDCookie'));
+    console.log('Role ID Cookie:' + getCookie('UserRoleIDCookie'));
+    
+    
     return this.currentlyLoggedIn;
   }
 }

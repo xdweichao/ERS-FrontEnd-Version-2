@@ -1,5 +1,8 @@
 <h1>User's Tickets</h1>
-
+<div>
+    <button (click)="logout()">Log Out</button>
+</div>
+<br/>
 <div>
     <table>
         <tr>
@@ -14,18 +17,15 @@
             <td>Type</td>
         </tr>
         <tr *ngFor="let tic of ticket">
-            <td>{{tic.reimb_id}}</td>
+            <td>{{tic.ticketid}}</td>
             <td>{{tic.amount}}</td>
-            <td>{{tic.submit}}</td>
-            <td>{{tic.resolve}}</td>
+            <td>{{tic.datesubmitted}}</td>
+            <td>{{tic.dateresolved}}</td>
             <td>{{tic.description}}</td>
-            <td>{{tic.author}}</td>
-            <td>{{tic.resolver}}</td>
-            <td>{{tic.status}}</td>
-            <td>{{tic.type}}</td>
+            <td>{{tic.authorid}}</td>
+            <td>{{tic.resolverid}}</td>
+            <td>{{tic.statusid}}</td>
+            <td>{{tic.typeid}}</td>
         </tr>
     </table>
-</div>
-<div>
-    <button (click)="logout()">Log Out</button>
 </div>
