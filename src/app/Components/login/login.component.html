@@ -1,0 +1,27 @@
+<div class="container">
+    <h1> Welcome to Expense Reimbursment System </h1>
+
+    <form>
+        <div>
+
+            <input [(ngModel)]="inputUsername" type="text" name="username" id="inputUsername" autocomplete="off" placeholder="Username">
+
+            <label for="inputUsername"></label>
+        </div>
+
+        <div>
+            <input [(ngModel)]="inputPassword" type="password" name="password" id="inputPassword" placeholder="Password" required>
+            <label for="inputPassword"></label>
+        </div>
+
+        <br>
+
+        <div *ngIf="invalidInput">
+            <div>
+                Invalid Username and Password
+            </div>
+        </div>
+
+        <input (click)="submit()" type="submit" value="Sign in">
+    </form>
+</div>
