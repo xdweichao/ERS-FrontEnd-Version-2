@@ -3,6 +3,7 @@ import { LoginComponent } from './Components/login/login.component';
 
 import { Routes, RouterModule } from '@angular/router';
 import { TicketHomeComponent } from './Components/ticket-home/ticket-home.component';
+import { CreateTicketComponent } from './Components/create-ticket/create-ticket.component';
 
 
 const routes: Routes = [{
@@ -15,6 +16,9 @@ const routes: Routes = [{
 },{
   path: 'Ticket_Home_Page',
   component: TicketHomeComponent
+},{
+  path: 'Create_Ticket_Page',
+  component: CreateTicketComponent
 }];
 
 @NgModule({

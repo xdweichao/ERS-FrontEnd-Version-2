@@ -1,0 +1,37 @@
+<h1>Expense Reimbursement Ticket Submission</h1>
+
+<form>
+    <div>
+        Amount:
+    </div>
+
+    <input [(ngModel)]="amount" type="number" name="amount" min="1.00"> Type:
+
+
+    <select [(ngModel)]="type" name="types">
+        <option value="1" name="type">Food</option>
+        <option value="2" name="type">Lodging</option>
+        <option value="3" name="type">Travel</option>
+        <option value="4" name="type">Others</option>
+    </select>
+
+    <div>
+        Description:
+    </div>
+
+    <textarea [(ngModel)]="description" name="description"> </textarea>
+
+    <div>
+        Receipt:
+    </div>
+
+    <div>
+        <input [(ngModel)]="picture" type="file" name="myRecipt">
+    </div>
+
+    <div>
+        <input (click)="back()" type="submit" value="back">
+        <input (click)="createTicket()" type="submit">
+    </div>
+
+</form>

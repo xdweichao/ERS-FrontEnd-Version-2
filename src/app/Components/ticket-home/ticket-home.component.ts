@@ -30,4 +30,9 @@ export class TicketHomeComponent implements OnInit {
     this.router.navigateByUrl('/login');
   }
 
+  createTicket() {
+    this.loggedIn.currentlyLoggedIn = false
+    this.router.navigateByUrl('/Create_Ticket_Page');
+  }
+
 }
